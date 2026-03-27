@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAFFE SLIM｜飲むだけ体型ケア・コーヒーダイエット</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --cream: #faf6f1;
+      --warm-white: #fff9f4;
+      --espresso: #2c1810;
+      --mocha: #6b3a2a;
+      --caramel: #c48a5a;
+      --rose-gold: #c4907a;
+      --blush: #f0d5c8;
+      --sage: #8a9e8c;
+      --soft-gold: #d4a96a;
+      --text-main: #2c1810;
+      --text-sub: #7a5c4a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Serif JP', serif;
+      background-color: var(--cream);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    /* ========== HERO ========== */
+    #hero {
+      opacity: 0;
+      animation: heroFadeIn 1.5s ease forwards;
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 40%, rgba(196,144,122,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(107,58,42,0.12) 0%, transparent 50%),
+        linear-gradient(160deg, #fdf8f3 0%, #f5e8db 50%, #ede0d4 100%);
+    }
+
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .coffee-circle {
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, #c48a5a 0%, #8b5e3c 40%, #4a2c1a 100%);
+      opacity: 0.12;
+      filter: blur(2px);
+    }
+
+    .coffee-ring {
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-52%);
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(196,144,122,0.3);
+    }
+
+    .coffee-ring-2 {
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-52%);
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      border: 1px solid rgba(196,144,122,0.15);
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      border: 1px solid var(--rose-gold);
+      padding: 6px 18px;
+      border-radius: 100px;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      font-weight: 300;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      color: var(--espresso);
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--rose-gold);
+    }
+
+    .sub-copy {
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      line-height: 1.9;
+      color: var(--text-sub);
+      font-weight: 300;
+      max-width: 440px;
+    }
+
+    /* CTA Button */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #c48a5a 0%, #a06840 100%);
+      color: #fff;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      padding: 18px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      box-shadow: 0 8px 32px rgba(196,138,90,0.35), 0 2px 8px rgba(0,0,0,0.08);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: pointer;
+      border: none;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 16px 48px rgba(196,138,90,0.45), 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .cta-btn-arrow {
+      width: 24px;
+      height: 24px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: transform 0.3s;
+    }
+
+    .cta-btn:hover .cta-btn-arrow { transform: translateX(4px); }
+
+    .cta-note {
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      color: var(--text-sub);
+      letter-spacing: 0.05em;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.5;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    .scroll-indicator span {
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--text-sub);
+    }
+
+    /* ========== SECTION BASE ========== */
+    section { position: relative; }
+
+    .section-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--espresso);
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--rose-gold);
+    }
+
+    /* ========== EMPATHY ========== */
+    #empathy {
+      background: var(--espresso);
+      padding: 100px 24px;
+    }
+
+    .empathy-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.4;
+    }
+
+    .empathy-title em {
+      font-style: italic;
+      color: var(--caramel);
+    }
+
+    .pain-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+
+    .pain-card:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateX(6px);
+    }
+
+    .pain-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(196,144,122,0.3), rgba(196,138,90,0.2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .pain-text {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .pain-text strong {
+      color: var(--blush);
+      font-weight: 500;
+    }
+
+    /* ========== SOLUTION ========== */
+    #solution {
+      padding: 110px 24px;
+      background: var(--warm-white);
+      overflow: hidden;
+    }
+
+    .solution-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rose-gold), transparent);
+      margin: 20px 0;
+    }
+
+    .feature-card {
+      background: var(--cream);
+      border-radius: 24px;
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 1px solid rgba(196,144,122,0.12);
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--caramel), var(--rose-gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .feature-card:hover::before { transform: scaleX(1); }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 64px rgba(196,138,90,0.15);
+    }
+
+    .feature-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: rgba(196,144,122,0.2);
+      line-height: 1;
+      position: absolute;
+      top: 20px;
+      right: 24px;
+    }
+
+    .feature-icon {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: 12px;
+    }
+
+    .feature-desc {
+      font-size: 0.9rem;
+      line-height: 1.85;
+      color: var(--text-sub);
+      font-weight: 300;
+    }
+
+    .feature-tag {
+      display: inline-block;
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--rose-gold);
+      background: rgba(196,144,122,0.1);
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    /* ========== HOW TO USE ========== */
+    #howto {
+      background: linear-gradient(160deg, #f5e8db 0%, #ede0d4 100%);
+      padding: 100px 24px;
+    }
+
+    .step-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+      position: relative;
+    }
+
+    .step-num-wrap {
+      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c48a5a, #a06840);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(196,138,90,0.3);
+    }
+
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .step-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: 8px;
+    }
+
+    .step-content p {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* ========== VOICE (Reviews) ========== */
+    #reviews {
+      padding: 110px 24px;
+      background: var(--cream);
+    }
+
+    .review-card {
+      background: var(--warm-white);
+      border-radius: 20px;
+      padding: 36px 32px;
+      border: 1px solid rgba(196,144,122,0.12);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .review-card:hover {
+      box-shadow: 0 16px 48px rgba(196,138,90,0.12);
+      transform: translateY(-4px);
+    }
+
+    .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: rgba(196,144,122,0.2);
+      position: absolute;
+      top: 12px;
+      left: 24px;
+      font-style: italic;
+    }
+
+    .review-text {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-main);
+      font-weight: 300;
+      padding-top: 28px;
+    }
+
+    .review-highlight {
+      color: var(--mocha);
+      font-weight: 500;
+    }
+
+    .review-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(196,144,122,0.15);
+    }
+
+    .review-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blush), var(--caramel));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .review-name {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--espresso);
+    }
+
+    .review-age {
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      font-family: 'Lato', sans-serif;
+    }
+
+    .star-row {
+      display: flex;
+      gap: 3px;
+      color: var(--caramel);
+      font-size: 14px;
+    }
+
+    /* ========== BENEFIT ========== */
+    #benefit {
+      background: var(--espresso);
+      padding: 100px 24px;
+      overflow: hidden;
+    }
+
+    .benefit-card {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(196,144,122,0.12), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .benefit-card:hover::after { opacity: 1; }
+    .benefit-card:hover { border-color: rgba(196,144,122,0.4); transform: translateY(-6px); }
+
+    .benefit-emoji {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    .benefit-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 14px;
+    }
+
+    .benefit-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* ========== FAQ ========== */
+    #faq {
+      padding: 100px 24px;
+      background: var(--warm-white);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(196,144,122,0.2);
+    }
+
+    .faq-q {
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      gap: 20px;
+      user-select: none;
+    }
+
+    .faq-q-text {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--espresso);
+      flex: 1;
+      line-height: 1.6;
+    }
+
+    .faq-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(196,144,122,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s;
+      font-size: 18px;
+      color: var(--caramel);
+    }
+
+    .faq-item.open .faq-toggle {
+      background: var(--caramel);
+      color: white;
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+    }
+
+    .faq-a-inner {
+      padding-bottom: 24px;
+      font-size: 0.93rem;
+      line-height: 1.9;
+      color: var(--text-sub);
+      font-weight: 300;
+    }
+
+    /* ========== OFFER ========== */
+    #offer {
+      background: linear-gradient(160deg, #f0e6db 0%, #e8d5c4 100%);
+      padding: 110px 24px;
+    }
+
+    .offer-box {
+      background: var(--warm-white);
+      border-radius: 32px;
+      padding: 56px 48px;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(196,138,90,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .offer-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #c48a5a, #d4a96a, #c4907a);
+    }
+
+    .price-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--espresso);
+    }
+
+    .price-tag span {
+      font-size: 1.3rem;
+      font-weight: 300;
+    }
+
+    .offer-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #c48a5a, #a06840);
+      color: white;
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 8px 24px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+
+    .guarantee-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+      margin: 32px 0;
+    }
+
+    .guarantee-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.93rem;
+      color: var(--text-sub);
+      font-weight: 300;
+    }
+
+    .guarantee-check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a8c5a0, #7da87a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .cta-sub {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--text-sub);
+      margin-top: 16px;
+    }
+
+    /* ========== CLOSING ========== */
+    #closing {
+      background: var(--espresso);
+      padding: 100px 24px;
+      text-align: center;
+    }
+
+    .closing-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+
+    .closing-title em {
+      font-style: italic;
+      color: var(--caramel);
+    }
+
+    .closing-sub {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.9;
+      max-width: 500px;
+      margin: 0 auto 48px;
+      font-weight: 300;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #1a0e08;
+      padding: 48px 24px 32px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--cream);
+      letter-spacing: 0.15em;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .footer-links a {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--caramel); }
+
+    .footer-note {
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ========== STICKY CTA ========== */
+    .sticky-cta {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      z-index: 999;
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      white-space: nowrap;
+    }
+
+    .sticky-cta.visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ========== ANIMATIONS ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ========== RESPONSIVE HELPERS ========== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 640px) {
+      .offer-box { padding: 40px 28px; }
+      .coffee-circle, .coffee-ring, .coffee-ring-2 { display: none; }
+      .hero-headline { font-size: 2.4rem; }
+    }
+
+    /* Number counter animation */
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.5);
+      margin-top: 8px;
+    }
+
+    /* Wave divider */
+    .wave-divider {
+      overflow: hidden;
+      line-height: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========================================
+     STICKY CTA
+======================================== -->
+<a href="https://px.a8.net/svt/ejp?a8mat=4AZPON+EIQMOQ+5VBI+61C2P"
+   class="sticky-cta cta-btn" id="stickyCta" target="_blank" rel="noopener noreferrer">
+  今すぐ初回特別価格で試す
+  <span class="cta-btn-arrow">→</span>
+</a>
+
+<!-- ========================================
+     HERO
+======================================== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="coffee-circle"></div>
+  <div class="coffee-ring"></div>
+  <div class="coffee-ring-2"></div>
+
+  <div class="container" style="padding: 0 24px; position: relative; z-index: 1; width: 100%;">
+    <div style="max-width: 620px; padding: 120px 0 100px;">
+      <div class="badge" style="margin-bottom: 28px;">Coffee Diet Support</div>
+
+      <h1 class="hero-headline" style="margin-bottom: 28px;">
+        我慢ゼロ。<br />
+        コーヒーを<em>飲むだけ</em>で、<br />
+        理想の自分へ。
+      </h1>
+
+      <p class="sub-copy" style="margin-bottom: 40px;">
+        脂肪ケア・腸内環境・美容を<strong style="color: var(--mocha);">1杯でまとめてサポート</strong>。<br />
+        忙しいママ・在宅ワーカーのための、続けやすいダイエット習慣。
+      </p>
+
+      <!-- Stats row -->
+      <div style="display: flex; gap: 36px; margin-bottom: 44px; flex-wrap: wrap;">
+        <div>
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--mocha); line-height:1;">98<span style="font-size:1.1rem">%</span></div>
+          <div style="font-family:'Lato',sans-serif; font-size:10px; letter-spacing:0.15em; color:var(--text-sub); margin-top:4px;">顧客満足度</div>
+        </div>
+        <div style="width:1px; background:rgba(196,144,122,0.2);"></div>
+        <div>
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--mocha); line-height:1;">3<span style="font-size:1.1rem">種</span></div>
+          <div style="font-family:'Lato',sans-serif; font-size:10px; letter-spacing:0.15em; color:var(--text-sub); margin-top:4px;">ケア成分配合</div>
+        </div>
+        <div style="width:1px; background:rgba(196,144,122,0.2);"></div>
+        <div>
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--mocha); line-height:1;">毎日<span style="font-size:1.1rem">続く</span></div>
+          <div style="font-family:'Lato',sans-serif; font-size:10px; letter-spacing:0.15em; color:var(--text-sub); margin-top:4px;">飲むだけ習慣</div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start;">
+        <a href="https://px.a8.net/svt/ejp?a8mat=4AZPON+EIQMOQ+5VBI+61C2P"
+           class="cta-btn" target="_blank" rel="noopener noreferrer">
+          初回特別価格でチェックする
+          <span class="cta-btn-arrow">→</span>
+        </a>
+        <span class="cta-note">🔒 個人情報の取り扱いは安全です　｜　送料無料</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>SCROLL</span>
+    <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
+      <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="8" cy="8" r="2.5" fill="currentColor" style="animation: scrollDot 1.8s ease infinite;">
+        <animate attributeName="cy" values="8;14;8" dur="1.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+  </div>
+</section>
+
+<!-- ========================================
+     EMPATHY
+======================================== -->
+<section id="empathy">
+  <div class="container" style="padding: 0 24px;">
+    <div class="reveal" style="text-align:center; margin-bottom: 64px;">
+      <div class="section-label" style="color: rgba(196,144,122,0.8);">こんな悩み、ありませんか？</div>
+      <h2 class="empathy-title" style="color: var(--cream);">
+        「また続かなかった…」<br />
+        <em>もうダイエットに疲れた</em>あなたへ
+      </h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 900px; margin: 0 auto 64px;">
+      <div class="pain-card reveal reveal-delay-1">
+        <div class="pain-icon">😮‍💨</div>
+        <p class="pain-text"><strong>食事制限が続かない…</strong><br />我慢するほど食べたくなる。ストレス食いが止まらない。</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-2">
+        <div class="pain-icon">🏃‍♀️</div>
+        <p class="pain-text"><strong>運動する時間も気力もない</strong><br />子育て・仕事・家事でもうヘトヘト。ジムなんて夢のまた夢。</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-3">
+        <div class="pain-icon">👗</div>
+        <p class="pain-text"><strong>産後から体型が戻らない</strong><br />「昔はもっと細かったのに」。好きな服が入らなくなった。</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-4">
+        <div class="pain-icon">🪞</div>
+        <p class="pain-text"><strong>試したけど全部ダメだった</strong><br />サプリ、プロテイン、置き換えダイエット…全部三日坊主。</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="text-align:center;">
+      <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.4rem,3.5vw,2.2rem); font-weight:300; color:var(--cream); line-height:1.6;">
+        それ、<em style="font-style:italic; color:var(--caramel);">意志が弱いせいじゃない。</em><br />
+        方法が合っていなかっただけ。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- wave -->
+<div class="wave-divider" style="background:var(--espresso);">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block; width:100%; height:80px;">
+    <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#faf6f1"/>
+  </svg>
+</div>
+
+<!-- ========================================
+     SOLUTION
+======================================== -->
+<section id="solution">
+  <div class="container" style="padding: 0 24px;">
+    <div class="reveal" style="text-align:center; margin-bottom: 72px;">
+      <div class="section-label">Solution</div>
+      <h2 class="section-title">
+        コーヒーを飲むだけで、<br />
+        <em>3つのケアが同時に叶う</em>
+      </h2>
+      <div class="solution-divider" style="margin: 20px auto;"></div>
+      <p style="font-size:0.95rem; color:var(--text-sub); line-height:1.9; max-width:500px; margin:0 auto; font-weight:300;">
+        特別な成分を配合したコーヒーで、日常にケアを溶け込ませる。<br />頑張らなくていい。ただ、おいしく飲むだけ。
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-num">01</div>
+        <div class="feature-tag">FAT CARE</div>
+        <div class="feature-icon">🔥</div>
+        <div class="feature-title">脂肪ケア成分</div>
+        <p class="feature-desc">
+          毎日のコーヒータイムに自然と脂肪ケアが組み込まれます。
+          難しい食事管理は不要。飲むだけで体の内側からアプローチ。
+        </p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-num">02</div>
+        <div class="feature-tag">GUT HEALTH</div>
+        <div class="feature-icon">🌿</div>
+        <div class="feature-title">腸内環境サポート</div>
+        <p class="feature-desc">
+          腸は「第二の脳」。腸内環境を整えることで、体のめぐりが改善。
+          むくみにくい、スッキリした毎日へ。
+        </p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-num">03</div>
+        <div class="feature-tag">BEAUTY</div>
+        <div class="feature-icon">✨</div>
+        <div class="feature-title">美容サポート成分</div>
+        <p class="feature-desc">
+          痩せるだけじゃない。内側からのキレイも同時にアプローチ。
+          「体型も肌も、どちらも諦めない」を叶えます。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     HOW TO USE
+======================================== -->
+<section id="howto">
+  <div class="container" style="padding: 0 24px;">
+    <div class="reveal" style="text-align:center; margin-bottom: 64px;">
+      <div class="section-label">How to Use</div>
+      <h2 class="section-title">たった<em>3ステップ</em>で完結</h2>
+    </div>
+
+    <div style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; position: relative;">
+      <!-- vertical line -->
+      <div style="position:absolute; left:31px; top:64px; bottom:64px; width:2px; background:linear-gradient(180deg, rgba(196,138,90,0.4), transparent);"></div>
+
+      <div class="step-card reveal">
+        <div class="step-num-wrap"><span class="step-num">1</span></div>
+        <div class="step-content">
+          <h3>お湯か水に溶かすだけ</h3>
+          <p>お気に入りのカップに注いで、スプーン1杯。たったそれだけ。朝のコーヒータイムがそのままケアタイムに変わります。</p>
+        </div>
+      </div>
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-num-wrap"><span class="step-num">2</span></div>
+        <div class="step-content">
+          <h3>いつでもどこでも飲む</h3>
+          <p>朝起きてすぐ、仕事中、食後のほっとひと息。スティックタイプだからオフィスにも持ち運び可能。カフェ気分で続けられます。</p>
+        </div>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-num-wrap"><span class="step-num">3</span></div>
+        <div class="step-content">
+          <h3>あとは日常を過ごすだけ</h3>
+          <p>特別な運動も、厳しい食事制限も不要。飲んだら、あとはいつもの生活をするだけ。それだけで体の内側が変わっていきます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     REVIEWS
+======================================== -->
+<section id="reviews">
+  <div class="container" style="padding: 0 24px;">
+    <div class="reveal" style="text-align:center; margin-bottom: 64px;">
+      <div class="section-label">Real Voices</div>
+      <h2 class="section-title">使った人の、<em>リアルな声</em></h2>
+      <p style="font-size:0.88rem; color:var(--text-sub); margin-top:16px; font-family:'Lato',sans-serif; letter-spacing:0.05em;">※ 個人の感想です。効果には個人差があります。</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+      <div class="review-card reveal reveal-delay-1">
+        <div class="quote-mark">"</div>
+        <div class="star-row">★★★★★</div>
+        <p class="review-text">
+          産後2年、何をやっても続かなかった私が<span class="review-highlight">3ヶ月継続できました</span>。コーヒー好きだからすんなり習慣になって、気づいたらズボンが緩くなっていました。
+        </p>
+        <div class="review-meta">
+          <div class="review-avatar">🌸</div>
+          <div>
+            <div class="review-name">R.K さん</div>
+            <div class="review-age">33歳・2児のママ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-2">
+        <div class="quote-mark">"</div>
+        <div class="star-row">★★★★★</div>
+        <p class="review-text">
+          在宅ワークで運動ゼロの生活が続いていましたが、これを飲み始めてから<span class="review-highlight">むくみが気にならなくなりました</span>。お腹の調子も良くなって肌まで明るくなった気がします。
+        </p>
+        <div class="review-meta">
+          <div class="review-avatar">☕</div>
+          <div>
+            <div class="review-name">M.T さん</div>
+            <div class="review-age">29歳・在宅勤務</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-3">
+        <div class="quote-mark">"</div>
+        <div class="star-row">★★★★☆</div>
+        <p class="review-text">
+          味がちゃんとコーヒーで美味しい！サプリっぽさが全然ないので毎日飲めます。<span class="review-highlight">お腹まわりがスッキリしてきた</span>のを実感中。友達にも勧めました。
+        </p>
+        <div class="review-meta">
+          <div class="review-avatar">🌿</div>
+          <div>
+            <div class="review-name">A.N さん</div>
+            <div class="review-age">36歳・フリーランス</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     BENEFIT
+======================================== -->
+<section id="benefit">
+  <!-- wave top -->
+  <div class="wave-divider" style="position:absolute; top:0; left:0; right:0;">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block; width:100%; height:80px; transform:rotate(180deg);">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--cream)"/>
+    </svg>
+  </div>
+  <div style="padding-top: 80px;"></div>
+
+  <div class="container" style="padding: 0 24px;">
+    <div class="reveal" style="text-align:center; margin-bottom:64px;">
+      <div class="section-label" style="color:rgba(196,144,122,0.7);">Your Future</div>
+      <h2 class="section-title" style="color:var(--cream);">
+        「痩せる」じゃなく、<br />
+        <em>あなたが変わる未来</em>へ
+      </h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; max-width:900px; margin:0 auto 64px;">
+      <div class="benefit-card reveal reveal-delay-1">
+        <div class="benefit-emoji">👗</div>
+        <div class="benefit-title">好きな服が着られる</div>
+        <p class="benefit-desc">クローゼットに眠ったあの服を、また着られる日が来る。</p>
+      </div>
+      <div class="benefit-card reveal reveal-delay-2">
+        <div class="benefit-emoji">🤳</div>
+        <div class="benefit-title">写真を見るのが楽しくなる</div>
+        <p class="benefit-desc">家族写真、友人との記念写真。もう隅に隠れなくていい。</p>
+      </div>
+      <div class="benefit-card reveal reveal-delay-3">
+        <div class="benefit-emoji">💫</div>
+        <div class="benefit-title">自分に自信が持てる</div>
+        <p class="benefit-desc">体型への不満がなくなると、毎日の気持ちが軽くなる。</p>
+      </div>
+      <div class="benefit-card reveal reveal-delay-4">
+        <div class="benefit-emoji">🌸</div>
+        <div class="benefit-title">肌も内側もキレイに</div>
+        <p class="benefit-desc">「痩せた？」と言われるだけじゃない。「キレイになった」と言われたい。</p>
+      </div>
+    </div>
+
+    <!-- Stats row -->
+    <div class="reveal" style="display:flex; justify-content:center; gap:64px; flex-wrap:wrap; border-top:1px solid rgba(255,255,255,0.1); padding-top:56px;">
+      <div style="text-align:center;">
+        <div class="stat-num">30,000<span style="font-size:1.5rem">+</span></div>
+        <div class="stat-label">累計利用者数</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="stat-num">4.8<span style="font-size:1.5rem">/5</span></div>
+        <div class="stat-label">平均評価</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="stat-num">72<span style="font-size:1.5rem">%</span></div>
+        <div class="stat-label">3ヶ月継続率</div>
+      </div>
+    </div>
+  </div>
+  <div style="padding-bottom: 80px;"></div>
+</section>
+
+<!-- ========================================
+     FAQ
+======================================== -->
+<section id="faq">
+  <div class="container" style="padding: 0 24px; max-width: 720px;">
+    <div class="reveal" style="text-align:center; margin-bottom:64px;">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">よくある<em>ご質問</em></h2>
+    </div>
+
+    <div id="faqList">
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-text">副作用はありますか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-inner">食品として販売しており、一般的なコーヒー飲料と同様にお召し上がりいただけます。ただし、カフェインに敏感な方や妊娠中・授乳中の方は医師にご相談の上ご利用ください。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-text">いつ飲むのが効果的ですか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-inner">朝食後や昼食後など、食後に飲むのがおすすめです。もちろん、普段のコーヒータイムに置き換えるだけでもOK。毎日飲み続けることが最も大切です。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-text">定期購入は縛りがありますか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-inner">定期購入でもいつでも解約・変更が可能です。ご自身のペースで続けていただけます。解約のお手続きもウェブまたはお電話で簡単に行えます。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-text">コーヒーが苦手でも飲めますか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-inner">マイルドでクリーミーな味わいに仕上げているため、コーヒーが苦手な方にも飲みやすいとご好評いただいています。牛乳や豆乳を加えてアレンジいただくのもおすすめです。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-text">どのくらいで効果を感じられますか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-inner">個人差はありますが、2〜4週間継続してご使用いただいた方から実感のご報告をいただくことが多いです。体質や生活習慣によって異なりますので、まずは1ヶ月継続してみることをおすすめします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     OFFER
+======================================== -->
+<section id="offer">
+  <div class="container" style="padding: 0 24px;">
+    <div class="reveal">
+      <div class="offer-box">
+        <div class="offer-badge">🎉 初回限定 特別オファー</div>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:400; color:var(--espresso); margin-bottom:8px; line-height:1.3;">
+          今だけ<em style="font-style:italic; color:var(--rose-gold);">初回特別価格</em>で<br />試せるチャンス
+        </h2>
+        <p style="font-size:0.9rem; color:var(--text-sub); margin:16px 0 32px; line-height:1.8; font-weight:300;">
+          「まず試してみたい」という方のために<br />初回限定の特別価格をご用意しました。
+        </p>
+
+        <div class="guarantee-list">
+          <div class="guarantee-item">
+            <div class="guarantee-check">✓</div>
+            <span>初回特別価格でお試し可能</span>
+          </div>
+          <div class="guarantee-item">
+            <div class="guarantee-check">✓</div>
+            <span>定期縛りなし・いつでも解約OK</span>
+          </div>
+          <div class="guarantee-item">
+            <div class="guarantee-check">✓</div>
+            <span>送料無料でご自宅にお届け</span>
+          </div>
+          <div class="guarantee-item">
+            <div class="guarantee-check">✓</div>
+            <span>安心の国内製造・品質保証</span>
+          </div>
+        </div>
+
+        <a href="https://px.a8.net/svt/ejp?a8mat=4AZPON+EIQMOQ+5VBI+61C2P"
+           class="cta-btn" style="width:100%; justify-content:center; font-size:1.1rem; padding:20px;" target="_blank" rel="noopener noreferrer">
+          今すぐ初回特別価格で購入する
+          <span class="cta-btn-arrow">→</span>
+        </a>
+        <p class="cta-sub">🔒 SSL暗号化通信で安全にご購入いただけます</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     CLOSING
+======================================== -->
+<section id="closing">
+  <div class="container" style="padding: 0 24px;">
+    <div class="reveal">
+      <p style="font-family:'Lato',sans-serif; font-size:11px; letter-spacing:0.25em; color:rgba(196,144,122,0.6); margin-bottom:24px;">A QUESTION FOR YOU</p>
+      <h2 class="closing-title">
+        今、始めない<em>理由</em>は<br />
+        ありますか？
+      </h2>
+      <p class="closing-sub">
+        1年後の自分を想像してみてください。<br />
+        何も変えなければ、何も変わらない。<br />
+        でも、今日1杯のコーヒーを変えるだけで<br />
+        未来は動き始めます。
+      </p>
+      <a href="https://px.a8.net/svt/ejp?a8mat=4AZPON+EIQMOQ+5VBI+61C2P"
+         class="cta-btn" style="font-size:1.1rem; padding:20px 48px;" target="_blank" rel="noopener noreferrer">
+        変わりたい私を、始める
+        <span class="cta-btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     FOOTER
+======================================== -->
+<footer>
+  <div class="footer-logo">CAFFE SLIM</div>
+  <div class="footer-links">
+    <a href="https://www.simanoya.com/page/law" target="_blank" rel="noopener noreferrer">特定商取引法に基づく表記</a>
+    <a href="#">プライバシーポリシー</a>
+    <a href="#">お問い合わせ</a>
+    <a href="#">よくあるご質問</a>
+  </div>
+  <p class="footer-note">
+    ※本ページはアフィリエイト広告（成果報酬型広告）を利用しています。<br />
+    ※本商品は個人の体験・感想に基づくものであり、効果・効能を保証するものではありません。<br />
+    ※効果には個人差があります。
+  </p>
+  <p style="font-family:'Lato',sans-serif; font-size:11px; color:rgba(255,255,255,0.2); margin-top:20px; letter-spacing:0.05em;">
+    © 2025 CAFFE SLIM. All rights reserved.
+  </p>
+</footer>
+
+<!-- ========================================
+     JAVASCRIPT
+======================================== -->
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Sticky CTA - show after scrolling past hero
+  const stickyCta = document.getElementById('stickyCta');
+  const hero = document.getElementById('hero');
+  window.addEventListener('scroll', () => {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    if (heroBottom < 0) {
+      stickyCta.classList.add('visible');
+    } else {
+      stickyCta.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>
